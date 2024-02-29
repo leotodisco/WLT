@@ -10,9 +10,10 @@ def write_to_txt(result, output_path):
             line = ' '.join(words[i:i + max_words_per_line])
             file.write(line + '\n')
 
-def do_transcribe(model, path):
+def do_transcribe(model, path, lang):
     print("trascrivo...")
-    result = model.transcribe(path)
+    
+    result = model.transcribe(path, language=lang)
     result_path = "trascrizione.txt"
     write_to_txt(result["text"], result_path)
     
