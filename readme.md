@@ -17,6 +17,11 @@ python -m venv venv
 ```bash
 pip install -r requirements.txt
 ```
+4. **Creare file di configurazione**: Creare un file di configurazione con il token del tuo bot telegram, quindi crea una file **.env** e aggiungi la stringa:
+```bash
+BOT_TOKEN = "il tuo token"
+```
+
 
 ## Utilizzo
 Dopo aver soddisfatto i requisiti, puoi trascrivere una lezione seguendo questi passaggi:
@@ -36,6 +41,7 @@ python main.py path/to/lezione.mp3 medium it 30
 
 ## Sviluppi futuri:
 - Creare un server per il bot telegram in modo da bypassare il limite dei 50 mb delle API;
+- Attualmente la selezione della lingua come argomento non funziona, quindi è una delle prime cose da migliorare;
 - Creare una desktop application con una GUI per semplificare l'utilizzo;
 - Refactoring e pulizia del codice sorgente;
 - Testing per garantire maggiore robustezza al progetto.
