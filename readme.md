@@ -42,6 +42,7 @@ python main.py path/to/lezione.mp3 medium it 30
 ## Sviluppi futuri:
 - Creare un server per il bot telegram in modo da bypassare il limite dei 50 mb delle API;
 - Attualmente la selezione della lingua come argomento non funziona, quindi è una delle prime cose da migliorare;
+- Migliorare la forma della trascrizione, rendendo il tutto più leggibile;
 - Creare una desktop application con una GUI per semplificare l'utilizzo;
 - Refactoring e pulizia del codice sorgente;
 - Testing per garantire maggiore robustezza al progetto.
