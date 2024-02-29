@@ -1,4 +1,4 @@
-# WhisperTranscribe
+# WLT
 
 ## Descrizione
 WLT (Whisper Lecture Transcriber) è un tool che utilizza la tecnologia Whisper per trascrivere le lezioni universitarie. 
