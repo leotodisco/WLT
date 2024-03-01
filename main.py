@@ -4,7 +4,7 @@ from transcriber_facade import write_to_txt
 from transcriber_facade import do_transcribe
 from audio_processing import taglia_audio
 
-def create_model(size, lang):
+def create_model(size):
     model = whisper.load_model(size)
     return model
 
