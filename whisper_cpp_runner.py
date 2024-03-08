@@ -11,7 +11,7 @@ path_audio_originale = "audio/iges_lezione4_parte2.m4a"
 
 audio_samplato = resample_to_16khz(path_audio_originale)
 
-argomenti = ["-m", "/Users/leopoldotodisco/Desktop/whispercpp/whisper.cpp/models/ggml-medium.bin", "-f", audio_samplato, "--output-txt", "-l", "it" ]
+argomenti = ["-m", os.getenv("MODEL_PATH"), "-f", audio_samplato, "--output-txt", "-l", "it" ]
 print("trascrivo...")
 
 start_time = time.time()
