@@ -26,4 +26,11 @@ def convert_from_m4a_to_mp3(percorso:str):
     return
 
 
+def resample_to_16khz(path: str):
+    audio = AudioSegment.from_file(path, format="m4a")
+    audio = audio.set_frame_rate(16000)
+    
+    mp3_path = path.split(sep='.')[1] + ".wav"
+    audio.export(mp3_path, format="wav")
+    return mp3_path
 

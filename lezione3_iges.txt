@@ -1,0 +1,747 @@
+ Allora, la ultima volta scorsa abbiamo visto un po' di terminologie, come posso dire,
+ software mentre, ai vari tipi di valutazione, e abbiamo visto alcuni modelli, diciamo, di
+ cifro di vita, se vogliamo, che include anche software in uscita. Adesso parliamo degli
+ standard software midlands e, diciamo, il vostro libro fa porre alla segna sia dello
+ standard A31219 che non è più, diciamo, in vigore, sia dello standard ISOIEC 14864
+ che poi è stato sviluppato da una joint task force fra ISO e High Tribune. Ok? Lo standard
+ A31219 organizza il processo di valutazione in sette fasi. Problema di identification,
+ analisi, design, implementazione, test, risulta un po' con le fasi del processo di sviluppo
+ calato però sulla valutazione. Invece di fare l'equivalent, se si esce, si fa il problema
+ di identificazione, si parte da quella che è la change register, la richiesta di modifica,
+ e si va ad analizzare questa richiesta di modifica e poi a progettare, diciamo, l'intervento,
+ testarlo, testarlo, accettarlo. Invece ISOIEC 14764, ISOIEC e High Tribune, descrive il processo
+ con un processo iterativo in cui, diciamo, si può anche istanziare, cioè si va ad istanziare
+ un particolare tipo di processo di valutazione a seconda del tipo di valutazione che deve
+ essere effettuato. Quindi è allineato a quello che è, diciamo, lo standard ISOIEC 12207 sui
+ modelli, sui processi, del ciclo di vita del software, ok, e quindi che fra i vari processi
+ del ciclo del software è in funzione del software. Qui lo standard va a dettagliare
+ come, diciamo, quali sono le attività che si fanno nella manutenzione. Quindi, come vedete,
+ process implementation è l'implementazione, ma è andare a definire quello che è il processo
+ utilizzato per la manutenzione, cioè a seconda del tipo di intervento di manutenzione, perché
+ la cosa è fare una manutenzione correttiva, quindi una manutenzione ordinaria correttiva,
+ un'altra cosa invece è fare un processo di manutenzione anno 2000, per esempio, in cui
+ devo andare a tappeto su tutto il sistema e lo devo fare anche in maniera incrementale
+ perché man mano che faccio effetto la trasformazione devo rimettere in esercizio il sistema, non
+ è che arriva alla fine faccio effetto di tutto quello che ho fatto. Sessa cosa, non abbiamo
+ ancora parlato di migrazione, di re-engineering, no, però immaginate che io debba migrare
+ un'applicazione che è in esercizio verso una nuova tecnologia. Allora, ci sono alcune
+ cose che devono essere effettuate per intero per effettuare la migrazione, come ad esempio
+ la migrazione di interfaccio tente, però se devo migrare interfaccio tente, interfaccio
+ tente non è che posso metterne da, no, una parte è a carattere, un'altra parte è grafica,
+ no, deve essere intera quella parte t, però non tutto il sistema devo migrare, cioè posso
+ comunque prevedere la migrazione come un processo incrementale in cui decido, vabbè, io prima
+ ne interfaccio tente, la parte vecchia la lascio così com'è, la frappo, la vado a encapsulare
+ e la utilizzo così com'è, poi vado a migrare il database, ok, e già la migrazione del
+ database la posso fare incrementalmente facendo coesistere la parte vecchia dei dati con la
+ parte nuova, sincronizzandola, ok, attraverso dei middleware che vengono chiamati gateway,
+ poi li vedremo nelle prossime del studio, e quindi lo posso fare incrementalmente, poi
+ una volta che ho migrato il database posso migrare la parte di application logic e anche
+ questa la posso fare incrementalmente, perché non essendo visibile all'utente, cioè essendo
+ qualcosa che percepisce l'utente non è che gli posso migrare l'interfaccia da una
+ funzione da una volta, no, questo vado su quest'altra schermata, vado su quest'altra
+ interfaccia, quindi vado su quest'altra applicazione, la parte dove c'è un'applicazione, la parte
+ dove c'è un'altra applicazione, no, cioè doveva avere un'unica applicazione, quindi
+ deve essere omogenea l'interfaccia, quindi quella deve migrare l'interfaccia, però le
+ altre cose le posso migrare incrementalmente, quindi fondamentalmente io devo definire
+ la strategia con cui faccio l'intervento e il processo che vado ad adottare, chiaro,
+ quindi process implementation, quindi vado ad implementare il processo che utilizzerò
+ nella per la manutenzione, a seconda appunto del tipo di manutenzione. Poi va bene, questo
+ quindi viene fatto fuori, poi c'è un ciclo, perché supponiamo che faccio manutenzione
+ correttiva, e qui decido qual è il mio modello di processo per la manutenzione correttiva,
+ c'è un contratto annuale con un'azienda, ok, che tengo sotto manutenzione i suoi sistemi,
+ per una, quindi mi arriveranno le richieste tramite l'Arpadesco per fare gli interventi,
+ quindi ho deciso qual è il mio modello di processo, come attuarlo, a questo punto per
+ ogni stanza di richiesta di modifica che arriva io avrò un problem modification analysis,
+ poi avrò l'implementazione della modifica e avrò, che ovviamente include il design della
+ modifica, quindi non c'è una fase di design, perché poi c'è la progettazione e l'implementazione
+ in realtà vanno insieme, quindi progetto, implemento, intervento, però l'analisi è
+ qualcosa che devo fare perché ti serve a capire un po' quello che è lo scope della
+ modifica, diciamo, parliamo di Batras, vedremo che cosa significa. Poi c'è la review acceptance
+ della modifica e questo diciamo è il ciclo normale, ok, poi a parte viene considerato
+ due aspetti, la migrazione e il retirement, la migrazione qui si intende, diciamo, proprio
+ la migrazione da un sistema a un altro che può essere anche un replacement del sistema,
+ per quanto, molto spesso per quanto sia un replacement di sistema c'è comunque da migrari
+ dati, ok, quindi posso cambiare il sistema, lo sostituisco con un altro, ma comunque
+ le dati del vecchio sistema devono confluire nei dati dei dati di un nuovo sistema per garantire
+ l'operatività. E questa cosa non è qualcosa, io non è che posso tranquillamente spegnere
+ il vecchio sistema, fare la migrazione dei dati, questa migrazione potrebbe metterci
+ un mese per fare questa migrazione, ok, e poi accendere il sistema nuovo, perché non posso
+ fare un mese senza usare il sistema, quindi mentre micro i dati devo continuare ad utilizzare
+ il sistema, quindi questa migrazione deve essere necessariamente fatta in maniera incrementale
+ e ci sarà sempre un periodo di affiancamento del vecchio sistema e del nuovo sistema, ok,
+ quindi non può essere fatto, diciamo, spegno, accendo, ci sarà un periodo di esecuzione
+ parallela del sistema, ok. La migrazione può anche venire fuori da una sorta di reengineering,
+ cioè migrazione del vecchio sistema, quindi non semplicemente un replacement, compro un
+ altro sistema e sostituisco il vecchio con il nuovo, ma potrebbe essere una rivisitazione
+ del vecchio sistema, quindi mi cambio l'interfaccio tempo, ma il sistema deve essere lo stesso
+ di io, quindi anche questa è una migrazione, devo passare dal vecchio al nuovo, quindi chiaramente
+ questo è, se il database è mai lo stesso, se non micro i dati, se non ho problemi di
+ migrazione o meno completa da questo punto di vista, cioè è più facile, perché il sistema
+ dietro è lo stesso, quello che cambia l'interfaccio tempo o meno completa, però se cambia anche,
+ cioè se ho migrato il database chiaramente questa è la parte più complessa di una migrazione.
+ E il retirement che invece è il processo in cui il vecchio sistema viene ritirato, quindi
+ ovviamente migrazione include anche il ritiro del vecchio sistema, poi ci può essere anche
+ un ritiro da solo, non verrà utilizzato più, non verrà ancora imbiazzato, quindi ripete
+ come processi a parte queste migrazioni, perché sono particolari, però appunto, quando qui
+ parlo di migrazione non intendo il processo di modifica del sistema vecchio e la trasformazione
+ del sistema nuovo, cioè intendo semplicemente il passaggio dal sistema vecchio al sistema
+ nuovo in esercizio, chiaro? Cioè noi parleremo di migrazione anche come processo di trasformazione
+ di un sistema vecchio in un nuovo sistema con nuove tecnologie. Però nello standard quando
+ si parla di migrazione si intende la parte finale, perché la migrazione intesa come
+ trasformazione del sistema rientra in queste attività qua, problem modification analysis,
+ modification implementation, maintenance review, quindi in questo ciclo, queste attività
+ quindi una volta che ho terminato di trasformare il sistema vecchio in un sistema nuovo dovrò
+ migrare dal sistema vecchio al sistema nuovo, quindi non riguarda questa parte qua il processo
+ di modifica del sistema, ma riguarda la transizione del nuovo sistema in esercizio e la sostituzione
+ del sistema vecchio, ok? Il termine transizione è proprio quello usato quando si va a sostituire
+ un servizio o quando si va a portare un servizio in esercizio, quando si va a portare un servizio
+ in esercizio si parla di transition, proprio come termine utilizzato in quello stato. Ok
+ per ogni una di queste attività ovviamente ci sono dei task e ogni task descrive delle
+ azioni con input autospecifico, quindi sia in questo standard che in quest'altro. Lo
+ standard ISOGEC 4807 sta introdotto nel 2006, c'è però una versione nuova pubblicata più
+ di recente, non ricordo l'anno, e quindi questo standard fa parte degli standard descritti
+ nell'ISOGEC 12207, perché anche l'ISOGEC 12207 è stato prodotto in una versione aggiornata,
+ c'è un primo standard 95 che era solo ISOGEC, insieme alla Tripoli hanno prodotto uno standard
+ del 2008, l'ultima versione è del 2017, quindi c'è stata la versione che faremo nel 2012
+ e un'altra nel 2017, che deve essere aggiornamenti dello standard. Ok, quindi appunto per in qualche
+ modo armonizzare tutti questi processi. Armonizzare significa rendere consistenti
+ tra di loro questi processi, quindi quello che io descrivo nello standard sui processi
+ del circuito del software è consistente in quello che scrivo nello standard specifico
+ di ciascun processo, e poi questi processi sono stati allineati con i processi di system
+ engineering, perché software engineering è qualcosa che fa parte di un sistema più complesso,
+ quindi c'è il system engineering come parte del system engineering del software engineering,
+ quindi anche la terminologia utilizzata in system engineering del software engineering
+ e quello che riguarda la parte software dei sistemi più complessi è stata in qualche
+ modo uniformata. Ok, quindi questo significa armonizzare e anche appunto rendere consistenti,
+ cioè trovare una convergenza tra i standard, ok, tra il vecchio 14764 che già esisteva
+ prima del 2006, ma era solo i SOIENC, e lo standard ad tripolito 12.9, ok. Software maintenance
+ è stato già definito nello standard 610.12.90 che è il processario dei termini di ingegneria
+ del software ad tripolito, e poi ovviamente nello standard 12.9.98, allo stesso modo,
+ e in questo standard il software maintenance è la modifica del blotto software di un componente
+ software dopo il rilascio con lo scopo di correggere errori e migliorare i attributi
+ dei sistemi con le versioni, adattare a nuovi modificazioni. Quindi è da qui i termini di
+ la modificazione correttiva perfetti e adatti, ok. E invece nello standard 14764 molto più
+ ampio, perché parte della totalità di attività, che ovviamente anche questo è allineato con
+ quello che è il software engineering body of knowledge, che è la sorta di raccolta di
+ tutti i concetti di ingegneria del software che è stato prodotto precedentemente, quindi
+ quando è stato prodotto lo standard, lo standard è allineato anche a questo che è il software
+ engineering body of knowledge. Quindi la totalità di attività richieste per fornire supporto
+ cost effective a sistemi software. Quando si producono questi standard, questi body of knowledge,
+ si mettono insieme esperti a livello mondiale, sia a livello accademico che a livello industriale,
+ per trovare in qualche modo una quadra, una convergenza, sicuramente sui termini, i concetti,
+ eccetera di una certa discipitura. Quindi vede è molto più generale, perché qui parla
+ solo di modifica. Qui invece parla di supporto cost effective a un sistema software. Se voi
+ ricordate al corso di ingegneria del software, una delle caratteristiche di qualità considerate
+ il modello Furps, quando dovete parlare delle questioni non funzionali, qual'era? Quella che
+ ha a che fare con la manutenzione, qual'era? O con la portabilità, qual'era? La S finale
+ di Furps per cosa è strana? Supportabilità, è la facilità con cui lo sviluppatore può
+ fornire supporto ad un sistema in esercizio. Il termine viene legato al concetto a portabilità,
+ io devo fornire supporto ad un sistema in esercizio. Nell'ambito di questo supporto c'è anche
+ la facilità con cui posso andare a modificare il sistema, c'è anche la manutenibilità.
+ Mentre andrete ad assumere questo concetto più ampio, di fornire supporto in maniera
+ efficace ad un sistema. Tutte le attività richieste per fornire questo supporto. L'altra
+ cosa importante che non era considerata qui, qui non c'è pianificazione, tutto parte
+ con la richiesta di modificazioni, ma process implementation, qual'è il processo che utilizzo,
+ come lo pianifico? Nello standard 1219 questo non c'è, sono solo le attività che tu devi
+ avere, dal momento in cui arriva una richiesta di modificazioni. Invece qui parla di pre-delivery
+ stage e post-delivery stage, post-delivery è quello che tu fai quando implementi il processo
+ e vai a eseguire gli interventi, man mano che arrivano le change register, però ci sono
+ le pre-delivery attivi che riguarda tutto quello che devo fare per pianificare il post-delivery
+ stage. Quindi process implementation rientra nel pre-delivery stage, prima ancora di rilasciare,
+ io già penso come devo fare. Quindi se io sto acquisendo un software, non è che prima
+ l'acquisto e poi mi pongo problemi alla panotezzetta, devo programmarla prima, quindi già quando
+ entro all'esercizio devo già aver pianificato come gestisco il sistema di ticketing, come
+ gestisco l'app desk, per mantenere l'esercizio del sistema e l'operatività, quindi per fornire
+ supporto al sistema. Ok, questo l'abbiamo già visto la volta scorsa, correttamente non
+ c'è modifica reattiva, cioè succede il problema e intervengo per correggere. Emergency lo faccio
+ in emergenza, perché? Perché molto spesso quello che io devo soddisfare sono dei service
+ level agreements che richiedono che io l'intervento e lo faccio, che io riprisso l'esercizio del
+ sistema e non c'è il potere. E allora non c'è il tempo di pensare a svolgere il processo
+ nel miglior modo, cioè nell'ottico, faccio l'intervento veloce e poi dopo ripeto l'intervento
+ e lo faccio offline mentre il sistema è esercizio. A schermo di modificharci per fornire il sistema
+ temporaneamente operativo pending correttivamente. In prima età faccio continuare a usare il
+ sistema e poi dopo faccio la potenzia di correggere. Ok? Non la faccio, ma non è reattivo al punto
+ tale che vi posso permettere di spegnere il sistema, pensare all'intervento di correzione
+ e poi riaccendere quando vi piace a me. Quindi tipicamente ogni volta che arriva un ticket
+ se deve rivistare l'esercizio si va in emergenza. Ok? Questo è il modo tipico di lavorare.
+ Dopo di che però bisogna fare la potenzia di correzione, seguendo tutti i processi, facciare
+ l'impact anale, facciare questione d'analisi, però magari la pezza che ho messo la devo
+ rimuovere perché devo fare l'intervento in maniera corretta. Preventive invece è quello
+ che abbiamo detto un'altra volta, cioè si fa quando io so che c'è un problema, l'utente
+ ancora non ha rilevato, quindi non c'è stato ancora un malfunziamento, però io lo so e quindi
+ cerco di intervenire prima che questo diventi, che prima che il fault diventi proprio una
+ failure, cioè un esercizio. Ok? Operation fault, fault di esercizio, diventi una failure
+ rilevata da l'utente della nuova esercizia stessa. Enhancement, adaptive and imperfective,
+ una nuova esigenza, l'ambiente cambia, quindi qui ci rientrano anche le nuove funzionalità,
+ i nuovi requisiti, rientrano in adaptive maintenance, perché è l'ambiente che cambia, cambia anche
+ perché cambia i requisiti, cambia i processi, cambiano le esigenze. Perfective invece, enhancement
+ for use, quindi uso abilità, improvement of program documentation, quindi questo riguarda
+ la manutenibilità, ma anche l'uso abilità, perché può essere documentazione per l'utente.
+ Recording to improve software performance, quindi tutto questo sono requisiti non funzionali,
+ quindi fondamentalmente in perfective io vado a mettere quelli che riguarda la manutenzione,
+ che serve a migliorare attributi di qualità, caratteristiche di qualità che non sono le
+ funzionalità, ma solo riguardano i requisiti non funzionali. C'è una domanda? Noi l'altro
+ volta diciamo che comunque perfective è diverso da fare reengineering, ma per quale motivo?
+ Perfective non è che è più ampio di reengineering, quindi reengineering è un sotto insieme. Io
+ faccio reengineering per migliorare la modularità di un sistema, sto migliorando la manutenibilità
+ del sistema e quindi sto facendo perfective, però perfective non è solo reengineering,
+ perché si mette una pezza, che io creo un buco nel sistema per attraversare layer e
+ andare direttamente su un layer più basso, quindi trasformando l'architettura da chiusa
+ ad aperta, per migliorare le performance del sistema, io avevo progettato un'architettura
+ chiusa, però è diventata lenta, quindi devo trovare delle scorciatovi per arrivare più
+ velocemente ai livelli più bassi e quindi trasformo l'architettura perché se non è
+ reengineering, però sto migliorando le performance del sistema e quindi sto facendo perfetti.
+ Ovviamente questo va a discapito la manutenibilità, perché se miglioro le performance in questo
+ modo sto peggiorando la manutenibilità, perché non uso l'architettura chiusa, non vado strato
+ strato ma buco gli strati direttamente per arrivare più velocemente ai livelli più
+ bassi. Si aggefa 10 chiamate una cosa, se ne faccio una, ovviamente è più efficiente.
+ Quindi non si va esplicitamente, quando aggiungo una funzionalità dove va? Perché aggiungo
+ una funzionalità. Poi altre cose, in adaptive rientra anche la migrazione verso una nuova
+ tecnologia, c'è un'esigenza per di portarle verso quella tecnologia, non sto migliorando
+ una caratteristica di qualità, non sto migliorando le performance, anzi se io costruisco uno strato
+ software che mi consente di utilizzare il sistema in un ambiente web, e io sto dall'andante
+ il sistema, c'è un altro strato in mezzo, non sto facendo perfetti dal punto di vista
+ di manodurabilità, perché io sono andato in situazione più complessa, quindi è un adaptive,
+ perché io sto adattando a nuove esigenze, c'è la esigenza di poter utilizzare quel sistema
+ tramite un'applicazione di una piattaforma web. Ok, in ogni caso, se io sto migliorando
+ qualcosa, o nelle funzionalità dell'utilizzo del sistema, oppure se allargo la base agli
+ utenti e sto facendo adaptive maintenance, perché sto consentendo a più utenti di utilizzare
+ il sistema in base alle esigenze che ci sono arrivate, ok? Prima lo usavano solo gli operatori
+ bancari, ma lo usano anche i clienti, e questo è un enhancement dell'applicazione, è pre-adaptivo,
+ sto adattando il sistema per farlo utilizzare in un altro modo. Lo standard 1219 aveva questo
+ concetto di cine, arrivavano le chieste di un attenzione e partivano di cine. In maniera
+ quasi sequenziale, presupponeva quasi una modalità sequenziale, il che può anche andare
+ bene quando facciamo un attenzione correttiva, va bene, facciamo un attenzione correttiva,
+ arriva la change request, ok, perché inizialmente anche gli enhancement erano visti molto localizzati,
+ molto piccoli, migliorano una cosa, migliorano un'aspetto. Cioè devo migliorare le funzionalità
+ di questa funzionalità, andiamo a vedere questa funzionalità, vediamo qual è il problema,
+ disorbiamo il progettale, la modifica il problema per renderlo più performante, questa funzionalità,
+ ovviamente test. Ok, poi dopo si sono iniziati ad arrivare ai problemi grossi, migrazioni
+ del sistema, migrazioni degli anni 90, quindi è ancora il periodo in cui lo standard 1219,
+ questa versione è qua, perciò è diventato il 98, questa è l'ultima versione del standard
+ 1219, ma c'è questa versione del 92, quindi se questa versione del 92 derivava da quello
+ che c'era negli anni 80, e pensi a un gestore web, non ci stanno, applicazione client server,
+ parte applicazione su un mainframe con terminale a carattere, di client server c'è molto poco,
+ allora è chiaro che non stiamo parlando di manutenzioni massive, stiamo parlando di manutenzioni
+ localizzate, nel momento in cui arrivano i manutenzioni massivi, cioè l'anno 2000, l'euro,
+ sono interventi massivi che a tappeto si seguono, migrazione, perché negli anni 90 poi si inizia
+ a parlare anche di migrazione, chiaramente lo standard è stato una versione 98, ma poi
+ è diventato busoreto e quindi quando si è passati negli anni 90 si è pensato a qualcosa
+ di più ampio e si è cercato di armonizzarlo con lo standard 14764, va bene lo standard,
+ si faccia una busorella a voce, ci interviene un lavoro picco, anche adaptive, cambia la
+ legge, magari devo cambiare qualcosa all'interno del sistema per adattarmi alla legge, magari
+ è cambiata, magari è cambiata la liquida fiscale, è cambiato il suo parametro, questa
+ liquida fiscale all'interno dell'applicazione di contabilità, cioè non è qualcosa, anche
+ quella è adaptive, ma è molto localizzata, non è qualcosa di massivo come intervento,
+ ma nel momento in cui ci sono interventi massivi, allora i processi di manutenzione devono essere
+ più sequenziali, devono essere i terativi incrementali, tutto quello di cui si parla
+ anche nello sviluppo di terativi incrementali va finire anche nella manutenzione, l'evoluzione
+ diventa i terativi incrementali di questo sistema. Poi è uscito OpenSource, un altro aspetto
+ fondamentale, negli anni 90 OpenSource si è iniziato a parlare, quando sono laureato
+ nel 1991, l'evoluzione ancora non esisteva, a Paci non esisteva, poi dopo è arrivato il
+ movimento OpenSource, quindi nell'OpenSource i processi iniziano a cambiare, quindi quello
+ che magari andava bene, pensavo, un sistema in forma di reagendare di un certo tipo, chiaramente
+ non funziona più, i sistemi erano quelli, poi si iniziavano ad arrivare proprio i replays
+ che si seguono, allora è chiaro che uno standard visto così non va bene in generale per parlare
+ di manutenzione, ma solo per parlare di un certo tipo di manutenzione. Questo processo
+ ha sette fasi, activi definition, input, sette fasi, e poi ogni una di queste attività ha
+ degli attributi che sono la definizione dell'attività, quali sono gli input e l'attività, quali sono
+ gli output e l'attività, i controlli, cioè che cosa va fatto con i controlli, le metriche
+ che si possono raccogliere durante l'esercizio, per esempio, che vediamo uno, problem identification,
+ prende in ingresso la maintenance regus e produce la valida, la maintenance regus con le determinazioni
+ del processo, cioè che significa, che devo fare, la maintenance regus deve essere identificata
+ unicamente e deve essere insinuata in modo da poter essere tracciata, le metriche, avrò
+ tante istanze di questa attività, posso misurare quante metriche sono arrivate, posso misurare
+ se ci sono duplicate, perché anche questo può essere vero, potrei avere la stessa richiesta
+ da due persone diverse, ci trovano lo stesso problema, che faccio? Devo in qualche modo
+ capire se è stata già realizzata, ci sono un sacco di tecniche, dove arrivano le metriche
+ della maintenance regus, nel mondo open source, in turni tipo bugzilla, bugzilla arrivano gli
+ issue, i problemi sono in qualche modo le change regus, quando arriva un issue duplicato e io
+ posso andare a controllare, è scritto in linguaggio naturale, posso usare tecniche di informazione
+ e posso andare a fare un match, posso andare a controllare, ho già indicizzato, devo indicizzare
+ le issue che stanno dentro del bugzilla, arriva il nuovo issue e io vado a controllare se questo
+ issue è simile agli altri, quindi un elenco di issue simili a questo qua, in ordine di
+ sua miglianza, e io vado a vedere se questa issue, devo validare, c'è sempre l'omino che
+ deve andare a dire, questo è duplicato oppure no, quindi marcarla come duplicata, se la marco
+ come duplicata posso contare quante issue duplicate e quante sono arrivati, se non usano
+ informazioni di magia guarda a mano, se quell'issue è un issue duplicato oppure no, ok, posso
+ misurare lo sforzo, il tempo che abbiamo impiegato per validare le maintenance rates, questa validazione
+ c'è anche questo aspetto qua, devo mandarla avanti o no questa maintenance rates, questo
+ è il problema di validare, ok, se non la mando avanti, perché non la mando avanti, 1 perché
+ è duplicata, 2, no questo non l'ho fatto ancora, perché lo faccio qua nella nasa,
+ che cosa potrebbe arrivare, ci arriva un ticket dall'alpa test, il problema è dovuto a un
+ problema di allineamento del database, quindi intervento il database, non vado a fare un
+ testing e tutto quello che c'è stato, ok, quindi io quando arrivo qua all'analisi e
+ sto andando sul software, perché prendo i documenti, progetti, documentazione, codice
+ per fare l'impact analysis anche, non ci stai esplicitamente, però nell'analisi report c'è
+ una meta, queste sono metriche di processo, c'è il sforzo, lo sforzo per funzionaria,
+ io ho analizzato la change data che si è capita su quale area del sistema, se io posso misurare
+ lo sforzo che io dedico alle varie parti del sistema, quello che mi costa di più in termini
+ di manutenzione, no? Chiaro? Comunque, diciamo, qui ho fissibilità di analisi, se l'analisi
+ costa i benefici mi dice che devo proseguire, ok? Qui no, se io qui dico che non vado avanti
+ è perché magari non si tratta di un intervento sul software, quindi non devo fare una modifica
+ al sistema software, ma semplicemente devo aiutare l'utente a utilizzare il sistema,
+ un supporto di un altro tipo, ok? Chiaro? Semplicemente c'è stato disegnamento, l'utente
+ non riesce ad utilizzare il sistema perché c'è stato un problema nel, anche questo
+ potrebbe essere usato al software, potrebbe essere corretto successivamente, però potrebbe
+ anche non essere dovuto a software, l'utente ha fatto una cosa che ne va a fare e quindi
+ poi si è disalignato il sistema, il che comunque significa il sistema non è robusto, ok? Quindi
+ potrebbe poi questo essere oggetto di indagini successivi. Vabbè, e qui poi ci sono le altre
+ attività, analisi, desale, ognuno di questi, cioè prende fondamentalmente gli output della
+ fase precedente in input, produce un altro output nella fase successiva, ok? E ci saranno
+ sempre dei controlli e delle, cioè i controlli sono una sorta di cosa che devo controllare
+ che venga fatta, ok? Contacts of inspection, cioè devo fare l'espezione del software quando
+ faccio desale, poi vedremo in dettaglio che cosa significa. Ok, lasciamo che se no. Quello
+ che è importante sull'analisi, quando faccio fisibili analisi faccio anche impact analysis,
+ dovete avere il proprio impatto del cambiamento della modifica, perché ovviamente questo è
+ quello che mi fa capire quanto è estesa la modifica e quanto mi costa, quindi rispetto
+ ai benefici io posso valutare questo costo. Investigare le altre possibili soluzioni, cioè
+ qui devo in qualche modo fare delle ipotesi di soluzione per capire appunto e realizzare
+ i possibili costi delle varie soluzioni, e determinare i benefici della modifica. La seconda
+ fase invece è più analitica, cioè vado sul, definisco la test strategy, l'implementation
+ plan, quindi faccio un po' di dettaglio. Va bene, la saltiamo perché sono standard, alla
+ fine c'è l'acceptance test, il delivery, new system based, quando faccio acceptance test
+ produco una nuova system based, cioè ho modificato un pezzo del sistema, ho prodotto una versione
+ e questo è il software configuration management, a che mi serve? Quando siano più versioni,
+ cioè qual è l'obiettivo del software configuration management? Che cosa voglio mantenere facendo
+ il software configuration? Voglio mantenere le baseline, cioè la baseline è quella versione
+ del mio sistema che è quella che io so, su cui poggio quello che devo fare. Se sto in
+ fase di sviluppo, una baseline è qualcosa che da questo momento in voi posso lavorare
+ perché questa è congelata questa parte, quindi posso lavorare. Se sto in fase di esercizio,
+ una baseline è la versione del sistema in esercizio, se io faccio una modifica devo produrre
+ una nuova baseline che sarà quella che adesso deve andare in esercizio, chiaro? Ovviamente
+ se io sto facendo una modificazione, modificando alcune componenti, solo quelle avranno una
+ versione cambiata, quindi la nuova baseline sarà fatta, tutte le componenti delle versioni
+ tranne quelle che sono cambiate, chiaro? Ovviamente questo è importante perché io posso avere
+ più baseline di uno stesso sistema, che significa che ho più baseline contemporaneamente, che
+ significa che ho più varianti del mio sistema di cui sto gestendo l'esercizio, gestendo
+ la modificazione e l'evoluzione. Fashioning è una delle attività di software configuration
+ management, ma quando vale configuration management? Una configurazione software è un insieme di
+ componenti software che è stato baseline, cioè che è approvato, quindi la baseline della
+ configurazione software. C'è qualcosa che io posso dire, questo è, lo puoi usare. Nella
+ configurazione ci vado a dirlo qual'è il compilatore che devi utilizzare, qual'è
+ la versione di tomcat che devi utilizzare, o la versione di un altro componente che devi
+ utilizzare per far funzionare il sistema, quella è la configurazione. Io gestisco le
+ configurazioni, ok? Le configurazioni sono baseline, non tutte le baseline sono configurazioni
+ utilizzate in esercizio, alcune baseline, le stuari tipiche di baseline ci possono essere,
+ il development baseline, io ho una baseline del RAD, requirements analysis software, quella
+ è una development baseline, cioè perfetto, il RAD è congelato, posso fare il design,
+ quando faccio il design posso funzionare quella versione del RAD, RAD sta per requirements
+ analysis software, perché non l'ha fatto l'ingegnere software, per chi lo sa scusate.
+ Così può essere un documento di system design o un documento di design, design, chiaro.
+ - Quando facciamo la maggiore tracciabilità. - La tracciabilità serve a mantenere le relazioni
+ fra i requisiti, o fra i requisiti e come, ma quello non è la base, anzi, la tracciabilità
+ inizia a stabilire fin da che crea un requisito, certo, posso anche costruire una baseline
+ nella mia maggiore tracciabilità, ho prodotto una base delle requisiti, ho prodotto anche
+ una base nella maggiore tracciabilità, ok? Cioè non è questo, la tracciabilità è importante
+ nel configuration management, perché quando si parla di dipendenze non è semplicemente
+ la tracciabilità dei requisiti, cioè io sto parlando anche di dipendenze fra componenti
+ software, ad esempio nel configuration management per capire come configurare una versione di
+ un sistema, ok? Io devo considerare un qualcosa che si chiama feature management, io devo gestire
+ dei features, immaginiamo che ho diverse versioni, ok, di un sistema utilizzato da diversi utenti,
+ e diversi utenti usano diverse funzionalità, io devo configurare ogni versione con delle
+ features, queste features si mappano sui componenti e sulle funzionalità del sistema che devono
+ essere mantenute all'interno, quindi io tramite queste features, e ovviamente ci sono dipendenze
+ tra i features, se io metto uno io metto un altro, quindi queste dipendenze mi fanno capire
+ io come posso configurare una versione per un particolare tipo di utente, piuttosto per
+ un altro tipo di utente, chiaro? Il primo software, il primo tool che è stato creato per gestire
+ queste dipendenze nell'ambiente, diciamo, Unix like, perché questo ha a che fare con
+ i tool di build, non so se avete visto, mape, che avete visto, mape, hai visto mape, con
+ i tool di build, no? Criate queste dipendenze, e poi potete costruire automaticamente, diciamo,
+ il prodotto software a partire dalla configurazione del prodotto software, che ti compila automaticamente
+ tutti i componenti e deve andare a compilare, però prima ancora di vivere, che ci stiamo?
+ Fatti fin dai primi corsi in cui avete usato il C, il make file, descrive le dipendenze
+ tra i componenti, e quindi vi dice quali componenti fanno parte di un sistema software che deve
+ andare a compilare, ok? Quella suite di tool che ci sta sotto Unix, prima e poi sotto Linux,
+ perché esiste il permesso di accesso, sapete perché esiste il permesso di accesso? High
+ quality, infatti il permesso di accesso restava lì, e perché ci stanno i permessi accessi?
+ Solo i, gruppo, tutti quanti, perché ci stai in gruppo? Può essere necessario che solo
+ il gruppo fa bisogno di scrivere su un programma che fa questo? Questo gruppo, che fa questo?
+ E' stato pensato per lo sviluppo software, non è che esistano perché gli utenti di Linux
+ e Unix se le piace farsi file, per lo sviluppo software, è un gruppo di progetti, un tipo
+ di progetto che deve lavorare su certe parti del sistema, che voi potete di tab e cose,
+ ma prima si usava un make file, l'astruttura che ci veniva pappata sulle cartelle, sulle
+ directory di Linux e Unix, quella che è, si usava i permessi accessi per evitare a persone
+ autorizzate di accedere a quei file che stanno in produzione, e poi come si faceva versioning,
+ come si faceva evitare che si andasse in conflitto sui componenti software? Se abbiamo tutta la
+ possibilità di toccare, come faccio a evitare che se lo tocco io non lo tocchi tu? Insegnate
+ i funghi. Sotto Linux esistono due comandi, ci in e ci out, check in e check out, ci e
+ ci out, con ci out si fa check out e io locco il file, cioè in pratica se metto certi file
+ sotto configuration, sotto versioning, si possono toccare, possono modificare solo se ho fatto
+ ci out. Quando faccio ci out, quella cartella che ho messo sotto versioning, è una cartella
+ che è condivisa e su cui si può fare solo una sorta di push, non ci posso lavorare direttamente.
+ Per lavorare devo portare il file in mio workspace, come fate quando lavorate con Zsteva, che
+ servono in Italia, poi lo portate nel vostro workspace, che operazione fate? Poi dopo ci
+ lavorate e poi fate un push, un commit, eccetera, ok? È la stessa cosa, voi non lo vedete,
+ voi vedete sempre quella cartella, non vedete l'altra cartella, è trasparente questa cosa,
+ ma in realtà quando voi fate il check out, voi portate nel vostro workspace locale il
+ file, lo modificate e lo salvate, lo potete salvare sul vostro workspace locale, poi fate
+ check in e lo portate un'altra volta là. Se io ho fatto check out, un altro non può
+ fare check out, quindi significa che non c'è concorrenza, se non c'è concorrenza significa
+ che l'altro finisce per poter lavorare sul file, però prima si lavorava così, io stavo
+ da una parte, lui stava da un'altra parte, tra l'altro aveva lo stesso file, tutto stava
+ su una workstation unix, c'è stato questo bel software, questo codice, io mi collegavo
+ con tennet a workstation unix, aprivo il mio mitico vioi oppure qualcosa un po' più statisticato,
+ il max, dico, dai mio editor, però prima di fare questo facevo check out, ok, modificavo,
+ salvavo, facevo check in, quando faccio check in posso anche andare a indicare un commento
+ modale che c'era tutto il versione del file, posso andare a indicare la storia delle versioni
+ del file con tutti i commenti che mi dicono che cosa stavo facendo, e così ci voleva lavorare
+ da un'altra parte, questa era il mio, forse dovevamo scrivere dei peperi con gli articoli
+ colleghi, era la stessa cosa, lavoravo, sul reposito la workstation condivisa, sul reposito,
+ con il permesso di accessi, questo dovrebbe modificare i vari file, le varie sezioni di
+ modificazione, quindi, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ questo è il mio, questo è il mio, questo è il mio, questo è il mio, questo è il mio,
+ ora, perché la memoria è l'importante, questo è il meccanismo, il diff esiste perché c'è
+ bisogno di calcolare il differenzio dei file quando si fa versioning dei file, rilascio
+ questo è l'aspetto importante, e le documentation change, training map, manuale train, operation
+ guide, la version descrizione, se aggiungo un'altra funzionalità al sistema, chiaramente
+ ciò, nuovi manuali, invece il 4864 è quello attuale, quindi ha ribiazzato i concetti, sono
+ un po' ripresi, un po' modificati, un po' adattati, quindi diciamo l'ostanto del 1207,
+ eccomi, come vedete il ciclo è problem modification analysis, modification implementation, very
+ simple, non è così articolato, qui c'è process implementation, qui definisco, pianifico
+ il processo che devo dare ad adottare, e qui lo implemento questo processo, indipendentemente
+ da come lo definisco qui, come lo implemento qui, ci sono due fasi importanti, la prima
+ è problem modification analysis, cioè questa analisi del problema se sto facendo una modificazione
+ correntina, o della richiesta di modifica se sto facendo enhancement, lo devo fare, ok,
+ perché devo fare sempre quella analisi fattibilità, impact analysis, eccetera eccetera, questo
+ va fatto sempre, però come implemento qua, design, analisi design, implementation, testing,
+ questo dipende dal modello di processo che io ho adottato, chiaro, non te lo dici come
+ lo faccio, c'è un problema con questa parte dell'evoluzione, così sei, così come devo
+ definirci questo modello di processo, così lo devo andare implementando, ok, quindi è
+ molto più generale questo modulismo, vincola molto meno il tipo di attività che deve
+ andare a fare qui dentro, ok, quindi si può fare qualunque cosa, però alla fine devi
+ lasciare la nuova base, quindi devi fare comunque mentre, anziché le più accettanti, ok, per
+ lasciare la nuova base, quindi questi due, l'inizio e la fine sono massi, in mezzo ci
+ farei quello che devi fare, in base a quello che ho definito qui, la pianificazione, ok,
+ poi ci sono due attività a parte che sono migration rate, immaginiamo che io ho fatto
+ un, ho trasformato un sistema vecchio e l'ho trasformato in un nuovo sistema, e adesso
+ devo sostituire il nuovo sistema al sistema vecchio, inizio l'attività di migrazione,
+ è l'attività di retare mentre il sistema vecchio, ok, però professore anche in questo
+ caso per migrazione si intende, diciamo la parte finale, la transizione di esercizio,
+ si si si si, non la trasformazione del sistema che invece viene fatta qua, ok, è vero, anche
+ qui andrò molto veloce e proprio leggeri, si è importante però parlarne così, è molto
+ tedioso, facciamo la lista della spesa, quindi, che cosa faccio, sviluppo i piani di procedure
+ di manutenzione, stabilisco le procedure di come devono arrivare le modification reggae
+ che sono i problemi, pianifico come deve funzionare il test ad esempio, no, quindi come sistema
+ di picketing, implemento il configuration management, anche questo, come gestisco, metto sotto configuration
+ management, la versione che è l'esercizio e poi le successive base, e sviluppo anche
+ il piano di configuration management, quindi devisco le procedure di manutenzione, le procedure
+ di problem resolution, il manuale di manutenzione, i piani per feedback degli utenti, i piani
+ di manutenzione, ecco sì, questo è quello che produco, parto per la system base dalla
+ system documentation e da, diciamo, modification reggae, qui è un po' più in generale, che
+ tipo di manutenzione devo fare, che devo fare, devo creare il sistema da client server alla
+ web, o devo creare il sistema da interfaccia a carattere e interfaccia grafica, o devo
+ semplicemente mettere in piedi un sistema, un intervento di manutenzione correttiva ordinaria,
+ questo è il tipo, cioè l'intervento, che sono a base di questo che devo definire il
+ processo, ok, quindi oltre al sistema io devo capire che tipo di maintenance sto andando
+ a fare. Hai che usare il control, e poi qui non ci sono le metriche ma c'è il supporto,
+ perché? Perché lo standard ISOE-EQ 12207, quando si fischiano i processi del ciclo di
+ dirso, significa anche processi che non sono tecnici, ma sono processi organizzativi di
+ supporto, ad esempio il processo di documentazione, il processo di configuration management, servono
+ a supportare gli altri processi, servono a supportare i processi di sviluppo così come
+ i processi di manutenzione, ok, quality assurance process, joint review process di trasversale,
+ che supportano i processi tecnici, ok, e via tutto, questo è il piano di manutenzione, però
+ anche se questo è un piano di manutenzione dello standard 1219, che però come vedete
+ c'è un tipo di attività anasi e sane implementation, invece chiaramente qui lo vado a fare, il 4194
+ non lo presento, è un template appunto, perché il piano di manutenzione può essere diverso
+ a seconda del tipo di manutenzione vado a fare. Anche se poi vedete non c'è un'attività
+ dello standard 1219 che dice quant'è che devo fare il piano di manutenzione. Ok, però la
+ modificazione anasi, questa è la più interessante, questa la vediamo un po' più in dettaglio,
+ perché è importante, cioè praticamente partiamo dall'analisi della mente lanzariga o problem
+ report, mentre lanzariga, se c'è una richiesta modificazione lanzariga, significa che c'è
+ qualcuno che mi ha chiesto di fare la modificazione, cioè stiamo parlando di lanzamento, ok, cioè
+ c'è qualcosa che non funziona bene eventualmente perché è lento, quindi richiedo lanzamento,
+ se no, problem report, c'è stato un problema, cioè non ha funzionato bene il sistema, mi
+ ha dato degli errori, mi è andato di crash, qualunque cosa potevo succedere, si è bloccato,
+ ok, allora questo è un problem report, quindi problem report dovrebbe essere formulato a
+ un modo di scenario, cioè chi ha avuto questa esperienza negativa di questo problema dovrebbe
+ descrivere la situazione che gli ha portato ad avere il problema, in modo tale che poi
+ questa stessa situazione possa essere replicata dagli sviluppatori per poter poi fare debati,
+ cioè risolvere il problema, correggere il problema, ok, però sono due cose diverse,
+ cioè si parla di modification records o di problem report, o è un problema, quindi richiede
+ la modificazione correttiva, o è una richiesta di modifica, quindi richiede lanzamento, problem
+ replication or verification, se è un problem report devo replicare il problema, ok, sviluppo
+ di opzioni per implementare la modifica, documentazione della, per fare l'analisi prima devo verificare,
+ mi ha dato un problema, ripeto quello che c'è, il problema è per capire se, perché
+ sennò mi faccia capire, a rendermi conto, no, è a fare analisi del problema, la mia
+ cosa è devo replicarlo. Documentation della modification record, problem record, opzione
+ di esecuzione, approvazione della opzione di modifica selezionale, quindi anche qui parte
+ il sistema, function requirements, interface requirements, configuration state information,
+ tutto quello che mi serve per fare questo video di analisi, ecco vedi anche qui, ho documentation
+ process perché devo documentare, produco dei documenti, quindi c'è sempre documentation
+ process, non importa qualunque documento, c'è sempre documentation process come processo
+ di supporto, quality assurance process e problem resolution process, ok, il problem resolution
+ process è uno dei processi di supporto, immaginate che io ho l'elp desk, mi arriva il problema
+ all'elp desk, ok, che fa l'elp desk? C'è il problem record, prima di arrivare al tipo
+ di manutenzione, l'elp desk, l'elp desk capisce se è veramente un problema o un problema dell'utente,
+ nel momento in cui capisce che è un problema software lo passa al tipo di manutenzione,
+ che deve fare l'analisi e poi implementare la modifica. Però nel momento in cui io passo,
+ nel momento in cui mi arriva il ticket si apre un problem, ok, il ticket si apre un problem,
+ il problem resolution process è un processo che viene gestito all'elp desk, ok, triggera,
+ fatemi passare il termine, scadena un processo di manutenzione, lo fa iniziare, quindi il
+ problem resolution process inizia un processo di manutenzione, il processio di manutenzione
+ è condotto ad un'altra parte, quando questo problema è risolto e viene messo in esercizio,
+ il team di manutenzione deve comunicarlo all'elp desk, che deve chiudere poi il problema,
+ il problema è stato risolto, sono due processi, il problem resolution process è un processo
+ che è vicino al cliente in qualche modo, il cliente interroga lo stato del lishu che
+ ha sollevato, del problema che ha sollevato e va a vedere a che punto è stato, è quello
+ che si occupa e risolve il problema all'utente, però per risolvere il problema all'utente
+ bisogna fare un processo di manutenzione, ho qualche altro processo, se devo fare un processo
+ di manutenzione faccio il processo di manutenzione, quindi sono due processi che in qualche modo
+ si treccia, dopo di che in alto trovo impact analysis, recommended option, oltre alle opzioni
+ alternative che ho valutato devo dire qual è quella che raccomando al team, chi dovrà
+ poi implementare la modifica, approved modification, test stage, immaginate che devo fare un intervento
+ di migrazione, di modifica, di trasformazione del sistema e devo decidere le varie strategie,
+ quindi io posso valutare queste varie alternative, queste varie strategie e posso dire, questa
+ poi sono i benefici e i pro e i contro di ognuna e raccomando uno, poi sarà il team che
+ fino a presto deve implementare che deciderà quale di questa poi effettivamente andrà
+ ad iniziare, e questo può essere su qualunque tipo di intervento, sono sempre le alternative,
+ perché la progettazione significa scegliere un modo di procedere, io date dei requisiti,
+ io posso progettare una cosa in tanti modi, ho tante soluzioni a un problema o dei requisiti,
+ quindi devo in qualche modo analizzare queste possibili soluzioni e raccomandarmi, va bene,
+ ovvero software implementation, aggiorni di requisiti, aggiorni test plan, aggiorni test
+ plan, qui ci sono i classifici del tipo di manutenzione, anche questo potrebbe arrivare,
+ potrebbe arrivare un problem o potrebbe arrivare un enhancement, cioè migliorare qualcosa e
+ poi decidere farlo meno, se è un problema cerco di sapere subito se è un problema di
+ esercizio, se è un problema di enhancement, vado se rientra nel tipo di enhancement che
+ è ammesso nel tipo di contratto che ho, se è una cosa che costa poco la posso fare,
+ se costa molto la farò un contratto a parte, però comunque devo definire sia il tipo sia
+ la priorità dell'intervento. L'impatto in questo periodo non è che tutte vanno fatte,
+ dipende dal tipo di intervento, cioè valutare l'impatto su car and then future user e se
+ devo aggiungere una funzionalità, qual è l'impatto sugli utenti con me, da appunti
+ a questi training che devo fare, se mi viene chiesto di modificare l'interfaccia utente,
+ qual è l'impatto sugli utenti che si trovano nella mia interfaccia che poi diciamo devono
+ andare a, in realtà c'è stato un periodo in cui la mia piattaforma di learning che ogni
+ due o tre cambiava nell'interfaccia utente, e mi avevo manigomite, e poi mi sono chiesto
+ questa cosa che prima stavo qua e poi dove stavo, e quindi non sono sempre capitato di
+ perdere i riferimenti, perché non si va valutare l'impatto, una cosa nuova è la ristalliamo,
+ è più bella, ma mica è detto, mica è detto che l'uomo sia migliore del vecchio, determinare
+ safety and security perché ci significa il ripple effect, questa è la cosa importante
+ dell'impact analysis, cioè se io modifico qualcosa, qual è l'effetto a cascata che
+ può avere su un altro parte del sistema, poi vedremo l'impact analysis più in dettaglio
+ alla prossima volta. Il documentario rischi di risultato all'impact analysis stima la valutazione
+ da essere eseguita così, i costi di management, e mette sotto competition value, mentre l'anserei
+ sia segnato alla work priority, questo è il primo step, questa è l'analisi, poi il secondo
+ step option, inizia a trovare le varie opzioni, a valutare, a stimare i costi di ogni opzione
+ e così via, poi c'è documentation task step, vado a documentare, se non esiste la documentazione
+ devo sviluppare una documentazione per spiegare quella parte del sistema, e quindi devo fare
+ diverse ingegni per tirare fuori anche dei diagrammi, dei modelli del sistema per spiegare
+ certe cose, e descrivere procedure per decidere se o meno approvare la metodologia, l'implementation,
+ e così via, vado a implementare il processo definito per la valutazione, viene modificato
+ con design, come, quale modello, non è ispirato, faccio design, implementation, test, e tutto
+ questo, ok, c'è poco da eseguire, e segui il processo di sviluppo per implementare, quello
+ che è definito nella fase che lo sosteniamo, mentre l'interview acceptance, come, review,
+ nel configuration manager, se vi ricordate c'è un'attività, l'audit, la review che serve
+ ad approvare una messa, è quello che vi ho fatto qua, io faccio, rivedo l'intervento,
+ quindi vede come ci sta, il configuration management process, il supporto al processo
+ di configuration management, ovviamente che si produce da base, qua ci manca, oltre a quelli
+ assurance verification, configuration management process, perché producono una nuova base che
+ incopre un accepted configuration management process, chiaro? Vale, assicurassi il coaching
+ conforme con il standard, tutte le cose vanno controllate quando faccio, diciamo, il check,
+ il project manager sicuramente aveva qualche check list per fare la review dei documenti,
+ anche per controllare il coding standard applicati, eccetera, eccetera, ci sono i check che vanno
+ fatti per approvare poi codice, documenti, insomma, quello che è, ok, e produrre una
+ nuova base, che è tutto collegato, la review, in cui voi approvate il requirements analysis
+ documento e prodotto una baseline del requirements analysis document, così, stessa cosa, speri
+ cose, per tutta l'equivalentazione, quando passate una baseline a una nuova baseline in
+ fase di manualizzazione, ok? Migration, migration, come vedete, che cosa prendete in ingresso?
+ Un old environment mentre un new environment, old baseline e new baseline, quindi c'è, ho
+ già tutte e due, ok? C'è il vecchio sistema e il nuovo sistema, da dove è venuto questo
+ nuovo sistema? Non mi interessa, se è un replace l'ho comprato per sostituire il vecchio o se
+ ho re-ingegnerizzato il vecchio per produrre una base da mettere in esercizio, dopo che
+ lo metto in esercizio, l'assurance, l'apparolamento, eccetera, eccetera, mi metto per supporto,
+ e che avrò in alto? Migration plan, migration tools, notification of vintage, migrated software
+ product, notification of comprehension, eccetera. Io qui vado ad attuare, cioè il piano di migrazione,
+ cioè qui dentro c'è tutto, no? Cioè che parte a questi due, definisco un piano di migrazione
+ e questo sarà anche l'automotive del process, ma è anche l'attuazione del piano di migrazione,
+ ok? Perché c'è il migrated software product, alla fine ho migrato dal vecchio al nuovo,
+ ok? Quindi non solo il piano, ma anche l'attuazione del piano, ok? Notification of vintage, perché
+ io prima devo spiegare alle persone che cosa sta succedendo, che ci sarà la sostituzione,
+ che ci sono gli utenti di impattare, di avvisare, devo far training, notifica di completamento,
+ quindi notification of vintage, stiamo partendo dalla migrazione. Notification, abbiamo completato
+ la migrazione, ok? Anche qui vado a, chiaramente,
+ per capire come è andato il processo, raccolgo dei dati per fare un'analisi post-mortem di
+ quello che è successo. L'impact analysis, questo quanto meno potrebbe essere impattante
+ per il sistema. I tool per supportare questa migrazione, sono due migrari dati, posso utilizzare
+ i tool che mi consentono di migrare dati automaticamente dal vecchio sistema al nuovo sistema. Oppure
+ devo acquistarli o gettare i tool per sfruttare la migrazione. La migrazione potrebbe essere
+ fatta incrementamente, posso inserire il nuovo prodotto al posto del vecchio, anche modulo
+ per modulo, ok? E' altra cosa importante, operare the migraine system in parallel, quindi
+ domandere un esercizio parallelo dei sistemi, perché devo avere sempre la possibilità se
+ qualcosa va a sorti con noi di tornare al vecchio. Io spengo il vecchio, c'è di nuovo, non posso
+ tornare più indietro. Quindi io devo prevedere un periodo di affiancamento, se voglio, però
+ devo fare il periodo di affiancamento del nuovo prodotto al vecchio prodotto. Mentre
+ il vecchio prodotto è in esercizio, devo fare una modifica. La faccio o non la faccio? Come
+ la faccio? Ok. Io sto introducendo il nuovo sistema piano piano, questo è il concetto.
+ Vabbè, anche qui, return and plan, implement parallel operations and training. Potrei avere
+ un nuovo software product, potrei averlo, anche qui. Però non c'è una migrazione, non c'è
+ il migrated, il migration significa veramente che quello che io sto introducendo ha qualcosa
+ a che fare con il vecchio, almeno per i darts. Qui invece, sto ritirando quello, eventualmente
+ potrebbe avere un nuovo prodotto, ma non è che c'è una relazione, però, se vado a vedere,
+ al inizio dei requisiti, il impatto del ritiro del software identifica un prodotto che lo
+ rimpiazzerà dentro il mecc che schede, però non c'è nessuna migrazionalità, è un nuovo
+ prodotto, non rimpiazza, ma se parlo di dati, allora c'è sempre una migrazionalità. Anche
+ se il prodotto nuovo non è il risultato di una migrazione, ma è un prodotto che ho acquisto,
+ c'ho sempre comunque i dati del vecchio prodotto che devono finire in luogo, quindi c'è una
+ migrazione di dati. Invece, quando parlo di retirement, quello non mi serve più, né
+ lui, né i suoi dati, compro un nuovo prodotto e comincio in luogo. Quindi, scordiamoci il
+ passato, veramente qui posso spegnere il cellulare, non c'è bisogno di parallel execution, chiaro?
+ Sì, è quello che vogliono fare così sempre, così tornare lì, di contabilità, sono queste
+ missioni del direttore generale che penso che non verrà rinnovato l'incarico, per questa
+ capolata. Che non è che tu spegni un e cedi un altro, è quello che era per questo passato,
+ c'era un tuo bilancio, c'era contabilità, c'era cosa che si sembra vecchio, c'è bisogno
+ in qualche modo. Invece, era stato spento a pino di natale, quello vecchio, e si pensava
+ di accenderlo, di accenderlo dopo natale, e non va a funzionare. Facciamo una pausa, in
+ realtà alle 3 poi arriverò. No, finiamo un po' prima perché alle 3 vedrete alcuni
+ dei tool che potreste utilizzare per fare il tipo di progetto tipo B, di sviluppo di
+ evoluzione di un tool di software engineering. Che cos'è software configuration management?
+ Lo sapete, andatevi a rivedere anche quello che abbiamo visto a engineering software, a
+ lei ho detto già che conviene che si scriva il corso engineering software dell'adrenalis
+ sulla piattaforma di learning. Perché si fa software configuration management? Uno per
+ la confusione, questo ha a che fare anche con lo sviluppo, con correnti, più persone che
+ lavorano sui stessi file, fare in modo che tutti siano lavorando sulla stessa versione.
+ Ma anche per evitare confusione dobbiamo andare a una nutenzione, facciamo una nutenzione,
+ io partirò dalla baseline per sapere qual'è l'ultima versione, se non ho la baseline non
+ posso fare la nutenzione. Mandere l'integrità del prodotto, fare in modo che le configurazioni
+ del prodotto corretto sono assicurate, assicurate la qualità, perché il configuration management
+ prevede sempre una fase di review, di valutazione della qualità prima di accettare, di approvare
+ una baseline, quindi diciamo che la valutazione della qualità è parte integrante del configuration
+ management. Migliora la produttività, che chiaramente se non si crede a confusione non
+ si perde tempo a risolvere i problemi causati dalla confusione. Ambiente sviluppo affidabile,
+ accounting of status, molto vecchia come disciplina, diciamo che già nell'industria spaziale negli
+ anni '50 c'era questa necessità, negli anni '70 così com'è andato l'ingegneria di software
+ configuration management, stava parlando di produzione di massa e stava parlando di change
+ management problems. Queste tecniche venivano dal mondo dell'aerospazio, perché nell'aerospazio
+ i problemi di configuration management sono importanti, perché ieri sono fatti di componenti
+ molto spesso, gli stessi componenti possono andare sulle stesse famiglie di aerei, immaginate
+ l'airbus, ci sono varie versioni di airbus, alcune di queste condividono le stesse componenti,
+ che sono state progettate in modo tale da condividere, quindi se cambia in uno deve
+ cambiare in tutto, perché altrimenti non ci troviamo più. Sia e meno usate punch cards
+ con colori diversi per indicare i cambiamenti, cioè le schede per forare, ogni schede ha
+ un'istruzione, se quella era stata cambiata aveva un colore diverso, nei versi degli anni
+ '60 per indicare i cambiamenti, si usava il correcting cards, e lo sviluppo dei sistemi
+ operativi era iniziato a beneficiare del software configuration management, quindi l'abito dei
+ sistemi operativi sono nati questi concetti, così come unix, quella suite di tool per
+ fare software configuration management, make, di concetto di delta, che sono quelli che li
+ vanno a memorizzare dato una versione di delta, la differenza rispetto alla versione precedente.
+ Giacchè Subbier è stato un video che ha lavorato molto in software configuration management,
+ ha definito funzionalità, prodotto, tool, workspace control, building e process, change
+ management, status accounting, accounting, and system model selection, cioè parliamo
+ di feature management, quelle che costituiscono una configurazione, quindi i modelli, devono
+ modellare il sistema, anche col metafire, voi modellate un sistema in termini di dipendenze
+ tra i componenti che costituiscono quel sistema, è sempre un modello, quando parliamo di dipendenze
+ tra elementi o di feature, questo è un insieme di feature, queste feature si mappano su delle
+ funzionalità, si mappano su dei componenti di code, provate ad integrare per poter costruire
+ una mia configurazione, questo è un modello del sistema che mi serve per supportare il
+ configuration management, version control, identificazione, identifichese il configuration
+ management e identifichese gli elementi da mettere sotto configuration management, che
+ possono essere non solo componenti di code, ma anche pezzi di documentazione, casi l'uso,
+ vabbè la base è version control, sapete come funziona, perché c'è master copies e working
+ copies, voi fate un pulpit e lavorate con working copies, quando fate la master copy
+ se non avessi messo a disposizione gli altri, il plugin non sarebbe chiamato promotion,
+ mettere un componente a disposizione gli altri, se fate il check out e il working copy dal
+ reposito, rimodificare il working copy e fare il check in, check out e check in sono i termini
+ storici utilizzati, in GitHub si usano push, però non esistono i concetti check out classico,
+ il check out presuppone un lock, il check in presuppone un unlock, hanno cambiato poi i
+ termini perché poteva essere furbiante, perché concorrente io faccio un pull ma non ho fatto
+ un lock, ok, sono scaricato e mi c'è andato il su, ok, però questi concetti che ho preso
+ si sono cercato e ci chiede, creo un branch, però non sto loccando in alcun modo, si lavora
+ in maniera concorrente, non in maniera concorrente, perché presuppone il fatto che possa lavorare
+ in maniera concorrente, mentre prima con lcs in questa maniera è possibile, ok, check in
+ yes for committing the change made to the working copy, quando fate push in realtà non è definitivo,
+ con commit fate un commit in locale, con commit voi fate una cosa in locale, ma molto spesso
+ voi non potete fare in maniera così libera le cose, voi potete proporre le modifiche,
+ poi c'è qualcuno che deve approvare, è detto che voi potete fare push, potete fare queste
+ cose qua, molto spesso voi potete solo proporre una modifica alla master direct, alla master
+ repository e questo è quando, questo dipende dal processo, quindi il tool non è il processo,
+ il processo è come viene fatto il processo di versioning, ci sono vari attori, voi potete
+ fare delle cose come autori, ma poi ci saranno magari altre responsabilità, cioè chi decide
+ che quella versione effettivamente diventa una baseline per altri, o una promotion, lo
+ decide qualcun altro, quello che approva la modifica, chiaro, quindi qui si completa il
+ processo configuration manager, perché io ho un audit, è qualcuno che mi valuta quella
+ cosa e decide che quella cosa va bene e può essere messa a disposizione gli altri, chiaro,
+ perché altrimenti l'eseguimento del tool, il configuration manager non è il tool, è
+ il modo in cui si usa il tool che definisce il processo, ok, chiaro, ecco qui, loro vi
+ faranno, vi presenteranno 4 tool, altri tool sono attesi per il prossimo, poi avete la
+ possibilità di valutare, vi saranno messi le regole che saranno a disposizione sulla
+ piattaforma di led e poi cominciamo, ecco, branch, ci sono altre cose, abbiamo parlato
+ prima, dobbiamo fare mergi che posso creare un branch, posso lavorare su questo branch,
+ anche qui dei bus, posso produrre varie versioni e poi ad un certo punto posso ricongigliare,
+ qui vedete che produco varie versioni, ok, posso decidere dove ricongigliare, ovviamente
+ quando voi semplicemente modificate un file e volete riporlo sopra, faccio un controllo
+ immediato fra quello che c'è sul top, quello da cui siete partiti voi, per capire se posso
+ fare un merge automatico di quella versione, che localmente è stata modificata o meno,
+ però io posso costruire dei branch anche che proseguono per diverso tempo, immaginate
+ che io sto facendo un intervento di migrazione anodinata, il sistema è sotto maintenance,
+ la migrazione dura un anno, il sistema è sotto maintenance, io sto facendo una parte un maltenzione
+ correttiva normale per mantenere l'esercizio del sistema, dall'altra parte sto eseguendo
+ un processo di manutenzione massiva su tutto il sistema che eventualmente è effetto in
+ maniera incrementale, perché incrementale? Perché così se nel frattempo viene fatto
+ intervento di manutenzione correttiva su un componente, io lo devo riportare anche sulla
+ versione modificata, se io rimetto in esercizio a piccoli pezzi il sistema una volta che
+ è stato modificato, che cosa succede? Che su quello non ci dovrò fare doppia manutenzione
+ correttiva, perché la faccio direttamente, qui è chiaro che io c'ho un branch, io creo
+ un branch e ci lavoro su queste persone, ho modificato un pezzo del sistema, a questo
+ punto devo rimettere in esercizio, in frattempo quella è andata avanti e questa è andata avanti,
+ prima di rimettere in esercizio e vedere che cosa è stato modificato e qualità, cioè
+ manutenzione correttiva mentre io facevo l'intervento massivo, quindi prima di rimettere in esercizio
+ io devo riconciliare questi interventi e riportare gli interventi anche sul pezzo migrato, allora
+ qui effettivamente ha senso parlare in principale, non se modifichare il sistema, le metto subito,
+ io ho peso un pezzo, me lo sto portando e migrando in parallel, modificando in parallel,
+ quindi non modifiche in parallel, quindi facendo anche diversi esercizi, più persone che ci
+ lavorano eventualmente qua, lavorano su un branch parallel, poi questo branch lo riporti
+ in esercizio, chiaro, quindi parlare di branch management pensando al fatto che modifichino
+ un componente, lo metto sopra e invece devo fare un check up, devo crearlo proprio, un
+ tronco parallelo su cui vado avanti e ci lavoro e poi dopo lo riporto in giusto, chiaro?
+ System model selection, qui le reazioni per gli artefatti che ho parlato prima, fondamentalmente
+ devo modellare queste relazioni per capire che cosa fa parte di una configurazione e cosa
+ fa parte di un'altra configurazione, pensate a famiglie di prodotti che girano su varie
+ varianti, ci sono le componenti che vanno insieme, altri che sono separati, quindi devo
+ costruire un modello che mi dice che cosa fa parte di ogni configurazione, di ogni variante.
+ In modo tale che poi posso automatizzare il processo di building, di produzione del nuovo
+ prodotto, che altrimenti ogni volta ci aiuta, ma che c'è a compilare, questo, questo, questo,
+ che ci va da una versione per questa piattaforma qua e devo sapere, quindi il modello mi serve
+ a mantenere queste relazioni per poi poter automatizzare il processo di building, va bene.
+ Change management, come avviene il change management? Quindi qui si incrocia con la manutenzione,
+ che cosa succede? Arriva la change register, che si fa? Ovviamente perché si incrocia
+ con la manutenzione, perché se stiamo in manutenzione, c'è la change register e la modification register
+ del process management usano la stessa cosa e il processo si sovrapporre, ma io posso anche
+ stare in fase di sviluppo e arriva la change register, quindi in generale è la manutenzione,
+ che cosa viene fatto? Viene valutata, così come viene valutata facendo le stesse cose
+ che abbiamo visto nella modification analysis, viene valutata la change register, si valutano
+ le varie alternative, si capisce se vale la pena effettuare la modifica e si decide se
+ accettare o meno, chi decide se accettare o meno? Il change control board, il change control
+ board è quella, cioè la sorta di comitato che decide quali modifiche devono essere
+ portate avanti, lo sviluppo del progetto sotto e quali non. Ok, andatevi a rivedere quello
+ che dice Brugge nel software configuration, perché questa scritta in maniera molto più
+ sistematico faccio. Ok, accounting, perché sono state fatte le modifiche, quando sono
+ state fatte, c'è tutte queste cose, io le devo sapere, le devo legare alle change
+ register che sono state fatte. Ok, chi ha effettuato la modifica? Quando scopriamo che
+ qualcosa non funziona, non cerchiamo di tracciare indietro, esistono gli algoritmi che ci consentono
+ di capire quando è stato introdotto il bug, perché magari il bug è stato introdotto
+ nell'effettuare una modifica di altra natura. Chi ha fatto why? Un Mexici, ok, andate a
+ rivedere questo, se io non ho questa informazione non riesco a recuperare il punto in cui è
+ stato introdotto il problema, quindi a capire che cosa, che role, come è stato introdotto
+ il fault, è a rimuoverlo, no, mi servono queste informazioni. E auditing invece serve
+ alla valutazione, io valudo perché lo faccio, perché devo avere sempre la possibilità
+ di tornare indietro, rollback, ok, quindi se non la provo la modifica e ritorno indietro
+ all'adversario precedente, e quindi mantengo l'integrità dell'adversario e del rischio
+ più efficiente per tutti e tutti, va bene, rivedetevi quello che avete fatto, è un po'
+ giusto per riprendere certi concetti, ma va bene facciamo fare un po' di pausa, l'ho
+ tostinato per quasi due ore. Questo va bene, il capitolo 10 del libro, giusto? Vedetevi
+ questo, perché qui all'arco è un po' riscosso, però quello di brughe è fatto in maniera più
+ sicura che mai.
